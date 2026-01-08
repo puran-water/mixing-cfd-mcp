@@ -1,0 +1,67 @@
+# Marine Propeller Correlations
+# High-efficiency axial flow for portable/submersible mixers
+# Common in wastewater and large tank applications
+
+impeller_type: marine_propeller
+category: axial_flow
+
+# Dimensionless correlations (turbulent regime, Re > 10000)
+power_number: 0.35
+flow_number: 0.50
+thrust_number: 0.48
+
+# Standard 3-blade marine propeller geometry
+blade_count: 3
+pitch_ratio: 1.0  # Pitch / Diameter (can vary 0.8-1.2)
+
+# Typical geometry
+typical_d_T_ratio: 0.25  # Often smaller relative to tank
+typical_c_D_ratio: 0.50  # C/D
+
+# Flow characteristics
+flow_pattern: axial
+pumping_direction: variable  # Down or up depending on rotation
+
+# Common configurations
+configurations:
+  - name: "Submersible mixer"
+    mount: submersible
+    thrust_n_per_kw: 150  # Typical thrust per kW shaft power
+    typical_speed_rpm: 500
+  - name: "Side-entry mixer"
+    mount: side_entry
+    angle_from_horizontal_deg: 10
+    typical_speed_rpm: 300
+  - name: "Portable clamp-on"
+    mount: portable
+    typical_speed_rpm: 1750
+
+# Application notes
+applications:
+  - large_tank_blending
+  - wastewater_mixing
+  - equalization_basins
+  - sludge_suspension
+  - flash_mixing
+
+# Reynolds number regime boundaries
+regime:
+  laminar_limit: 10
+  transitional_limit: 500
+  turbulent_onset: 5000
+
+# Transitional regime correction
+transitional_correction:
+  type: power_law
+  exponent: -0.15
+
+# Submersible mixer thrust correlation
+thrust_correlation:
+  model: "T = K_T * rho * N^2 * D^4"
+  K_T: 0.40  # Thrust coefficient
+
+# References
+references:
+  - "Oldshue (1983), Fluid Mixing Technology"
+  - "Nienow et al. (1997), Trans IChemE 75A"
+  - "Mixer manufacturer catalogs (Flygt, ITT, Xylem)"

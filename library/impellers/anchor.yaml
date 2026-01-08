@@ -1,0 +1,58 @@
+# Anchor Impeller Correlations
+# Close-clearance impeller for viscous fluids
+# Scrapes tank wall for heat transfer enhancement
+
+impeller_type: anchor
+category: close_clearance
+
+# Dimensionless correlations
+# Note: Anchor operates primarily in laminar/transitional regime
+power_number: 0.35  # At Re = 100 (viscous regime)
+flow_number: 0.15
+thrust_number: 0.0
+
+# Power number vs Reynolds correlation (laminar-transitional)
+# Np = K_p / Re for Re < 30
+# Np = K_p * Re^(-0.5) for 30 < Re < 300
+laminar_constant: 35  # K_p for Re < 30
+
+# Standard geometry
+blade_count: 2
+typical_d_T_ratio: 0.95  # Close to tank wall
+wall_clearance_ratio: 0.025  # Gap / Tank diameter
+blade_height_ratio: 0.90  # Blade height / Liquid height
+
+# Flow characteristics
+flow_pattern: tangential
+pumping_direction: none  # Primarily tangential motion
+
+# Heat transfer enhancement
+heat_transfer:
+  wall_scraping: true
+  Nu_correlation: "Stein (1964)"
+  enhancement_factor: 2.5  # vs. non-scraped wall
+
+# Application notes
+applications:
+  - high_viscosity_blending
+  - heat_transfer_viscous
+  - polymer_processing
+  - paste_mixing
+  - wall_scraping
+
+# Reynolds number regime boundaries
+regime:
+  laminar_limit: 0.1
+  transitional_limit: 30
+  turbulent_onset: 300  # Rarely operates in turbulent
+
+# Often combined with other impellers
+combination_notes:
+  - "Often used with central helical ribbon for bulk mixing"
+  - "Outer anchor for wall scraping, inner impeller for bulk flow"
+
+# References
+references:
+  - "Nagata (1975), Mixing: Principles and Applications"
+  - "Stein (1964), PhD Thesis, MIT"
+  - "Edwards & Wilkinson (1972), The Chem Engr"

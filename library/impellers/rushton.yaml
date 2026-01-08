@@ -1,0 +1,62 @@
+# Rushton Turbine (Disk Turbine) Correlations
+# High-shear radial flow impeller
+# Standard for gas-liquid dispersion and high-shear applications
+
+impeller_type: rushton
+category: radial_flow
+
+# Dimensionless correlations (turbulent regime, Re > 10000)
+power_number: 5.00
+flow_number: 0.72
+thrust_number: 0.0  # Radial flow, no net axial thrust
+
+# Standard 6-blade disk turbine geometry
+blade_count: 6
+disk_diameter_ratio: 0.75  # Disk diameter / Impeller diameter
+blade_width_ratio: 0.20    # Blade width / Impeller diameter
+blade_height_ratio: 0.25   # Blade height / Impeller diameter
+
+# Typical geometry
+typical_d_T_ratio: 0.33  # D/T (impeller to tank diameter)
+typical_c_D_ratio: 1.0   # C/D (clearance to impeller diameter)
+
+# Flow characteristics
+flow_pattern: radial
+pumping_direction: radial_outward
+
+# Gas dispersion parameters (for gas-liquid systems)
+gas_dispersion:
+  flooding_correlation: "N_flood = 30 * Q_g / (N * D^3)"
+  loading_correlation: "N_load = 3.5 * (Q_g)^0.5 * (g*D)^0.25"
+  power_reduction_flooded: 0.50  # Pg/P0 at flooding
+  power_reduction_loaded: 0.85  # Pg/P0 at loading
+
+# Application notes
+applications:
+  - gas_liquid_dispersion
+  - fermentation
+  - high_shear_emulsification
+  - fast_reactions
+  - mass_transfer_limited
+
+# Reynolds number regime boundaries
+regime:
+  laminar_limit: 10
+  transitional_limit: 100
+  turbulent_onset: 10000
+
+# Transitional regime correction
+transitional_correction:
+  type: power_law
+  exponent: -0.25
+
+# Cavern formation (for non-Newtonian fluids)
+cavern:
+  model: "Elson (1990)"
+  dc_D_correlation: "(P0 * rho * N^2 * D^2 / tau_y)^(1/3)"
+
+# References
+references:
+  - "Rushton et al. (1950), Chem Eng Prog 46(8)"
+  - "Hemrajani & Tatterson (2004), Handbook of Industrial Mixing"
+  - "Nienow (1998), Trans IChemE 76A"

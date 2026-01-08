@@ -1,0 +1,65 @@
+# Pitched Blade Turbine (PBT) Correlations
+# Versatile mixed-flow impeller with good axial and radial components
+# Standard workhorse for many mixing applications
+
+impeller_type: pitched_blade
+category: mixed_flow
+
+# Dimensionless correlations (turbulent regime, Re > 10000)
+# Values for 4-blade, 45-degree PBT (most common)
+power_number: 1.30
+flow_number: 0.75
+thrust_number: 0.70
+
+# Blade configuration variants
+variants:
+  - name: "4-blade 45-degree"
+    power_number: 1.30
+    flow_number: 0.75
+    blade_count: 4
+    blade_angle_deg: 45
+  - name: "6-blade 45-degree"
+    power_number: 1.70
+    flow_number: 0.82
+    blade_count: 6
+    blade_angle_deg: 45
+  - name: "4-blade 30-degree"
+    power_number: 0.75
+    flow_number: 0.60
+    blade_count: 4
+    blade_angle_deg: 30
+
+# Typical geometry
+typical_d_T_ratio: 0.33  # D/T (impeller to tank diameter)
+typical_c_D_ratio: 0.75  # C/D (clearance to impeller diameter)
+blade_count: 4
+blade_angle_deg: 45
+
+# Flow characteristics
+flow_pattern: mixed
+pumping_direction: down  # Standard; can be up
+
+# Application notes
+applications:
+  - general_blending
+  - solids_suspension
+  - gas_dispersion_light
+  - heat_transfer
+  - crystallization
+
+# Reynolds number regime boundaries
+regime:
+  laminar_limit: 10
+  transitional_limit: 1000
+  turbulent_onset: 10000
+
+# Transitional regime correction
+transitional_correction:
+  type: power_law
+  exponent: -0.20
+
+# References
+references:
+  - "Hemrajani & Tatterson (2004), Handbook of Industrial Mixing"
+  - "Bates et al. (1963), AIChE Journal 9(3)"
+  - "Raghav Rao & Joshi (1988), Chem Eng Comm 74"

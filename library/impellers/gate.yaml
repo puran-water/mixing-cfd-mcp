@@ -1,0 +1,47 @@
+# Gate Impeller Correlations
+# Simple frame impeller for viscous fluids
+# Often used with side scrapers in viscous applications
+
+impeller_type: gate
+category: close_clearance
+
+# Dimensionless correlations
+power_number: 0.20  # At Re = 100
+flow_number: 0.10
+thrust_number: 0.0
+
+# Power number vs Reynolds correlation (laminar)
+laminar_constant: 20  # K_p = Np * Re for Re < 50
+
+# Standard geometry
+blade_count: 2  # Vertical arms
+cross_bars: 2   # Horizontal cross members
+typical_d_T_ratio: 0.90  # Close to tank wall
+wall_clearance_ratio: 0.05
+
+# Flow characteristics
+flow_pattern: tangential
+pumping_direction: none  # Minimal axial pumping
+
+# Application notes
+applications:
+  - paste_mixing
+  - slurry_suspension
+  - wall_scraping
+  - heat_transfer_viscous
+
+# Reynolds number regime boundaries
+regime:
+  laminar_limit: 0.1
+  transitional_limit: 50
+  turbulent_onset: 500
+
+# Combination notes
+combination_notes:
+  - "Often combined with anchor for wall scraping"
+  - "May include side scrapers"
+
+# References
+references:
+  - "Nagata (1975), Mixing: Principles and Applications"
+  - "Edwards & Wilkinson (1972), The Chem Engr"

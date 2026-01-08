@@ -1,0 +1,58 @@
+# Helical Ribbon Impeller Correlations
+# Close-clearance impeller for highly viscous fluids
+# Excellent top-to-bottom circulation in viscous systems
+
+impeller_type: helical_ribbon
+category: close_clearance
+
+# Dimensionless correlations
+# Note: Primarily operates in laminar regime
+power_number: 0.35  # At Re = 10 (viscous regime)
+flow_number: 0.30
+thrust_number: 0.25  # Axial component from helical pumping
+
+# Power number vs Reynolds correlation (laminar)
+# Np * Re = K_p (constant in laminar regime)
+laminar_constant: 100  # K_p = Np * Re for Re < 100
+
+# Standard geometry
+ribbon_count: 2  # Number of helical ribbons
+pitch_ratio: 1.0  # Pitch / Diameter
+typical_d_T_ratio: 0.95  # Close to tank wall
+wall_clearance_ratio: 0.025  # Gap / Tank diameter
+ribbon_width_ratio: 0.10  # Ribbon width / Impeller diameter
+
+# Flow characteristics
+flow_pattern: axial_helical
+pumping_direction: up_center  # Pumps up at center, down at wall
+
+# Application notes
+applications:
+  - very_high_viscosity
+  - polymer_solutions
+  - paste_mixing
+  - food_processing
+  - pharmaceutical_gels
+
+# Reynolds number regime boundaries
+regime:
+  laminar_limit: 0.01
+  transitional_limit: 10
+  turbulent_onset: 100  # Turbulent operation very rare
+
+# Mixing time correlation (viscous regime)
+mixing_time:
+  model: "Delaplace (2000)"
+  N_theta: 50  # Dimensionless mixing time at Re < 10
+
+# Scale-up considerations
+scale_up:
+  constant_tip_speed: false
+  constant_P_V: false
+  maintain_Re: true  # Scale to maintain similar Re
+
+# References
+references:
+  - "Nagata (1975), Mixing: Principles and Applications"
+  - "Delaplace et al. (2000), Chem Eng Sci"
+  - "Tanguy et al. (1996), Trans IChemE 74A"

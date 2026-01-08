@@ -1,0 +1,45 @@
+# Hydrofoil Impeller Correlations
+# High-efficiency, low-shear axial flow impeller
+# Common types: Lightnin A310/A315, Chemineer HE-3, Ekato Interprop
+
+impeller_type: hydrofoil
+category: axial_flow
+
+# Dimensionless correlations (turbulent regime, Re > 10000)
+power_number: 0.30
+flow_number: 0.55
+thrust_number: 0.53
+
+# Typical geometry
+typical_d_T_ratio: 0.35  # D/T (impeller to tank diameter)
+typical_c_D_ratio: 0.50  # C/D (clearance to impeller diameter)
+blade_count: 3
+blade_angle_deg: 45
+
+# Flow characteristics
+flow_pattern: axial
+pumping_direction: down  # Most common; can be up for some configurations
+
+# Application notes
+applications:
+  - blending
+  - solids_suspension
+  - heat_transfer
+  - low_shear_mixing
+
+# Reynolds number regime boundaries
+regime:
+  laminar_limit: 10
+  transitional_limit: 1000
+  turbulent_onset: 10000
+
+# Power number correction for off-design conditions
+# Np = Np_turbulent * f(Re) in transitional regime
+transitional_correction:
+  type: power_law
+  exponent: -0.15  # Np ~ Re^-0.15 in transition
+
+# References
+references:
+  - "Hemrajani & Tatterson (2004), Handbook of Industrial Mixing"
+  - "Paul et al. (2004), Handbook of Industrial Mixing, Ch. 6"

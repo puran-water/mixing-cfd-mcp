@@ -1,0 +1,68 @@
+# Flat Blade Turbine (Paddle) Correlations
+# Simple radial flow impeller
+# Historical standard, now largely replaced by more efficient designs
+
+impeller_type: flat_blade
+category: radial_flow
+
+# Dimensionless correlations (turbulent regime, Re > 10000)
+# Values for 4-blade paddle (no disk)
+power_number: 2.50
+flow_number: 0.60
+thrust_number: 0.0  # Radial flow
+
+# Blade configuration variants
+variants:
+  - name: "4-blade paddle"
+    power_number: 2.50
+    flow_number: 0.60
+    blade_count: 4
+  - name: "6-blade paddle"
+    power_number: 3.20
+    flow_number: 0.65
+    blade_count: 6
+  - name: "2-blade paddle"
+    power_number: 1.70
+    flow_number: 0.45
+    blade_count: 2
+
+# Standard geometry
+blade_count: 4
+blade_width_ratio: 0.20  # Blade width / Impeller diameter
+blade_height_ratio: 0.25  # Blade height / Impeller diameter
+
+# Typical geometry
+typical_d_T_ratio: 0.33  # D/T
+typical_c_D_ratio: 1.0   # C/D
+
+# Flow characteristics
+flow_pattern: radial
+pumping_direction: radial_outward
+
+# Application notes
+applications:
+  - general_blending
+  - solids_suspension
+  - simple_mixing
+
+# Reynolds number regime boundaries
+regime:
+  laminar_limit: 10
+  transitional_limit: 500
+  turbulent_onset: 10000
+
+# Transitional regime correction
+transitional_correction:
+  type: power_law
+  exponent: -0.20
+
+# Notes
+notes:
+  - "Less efficient than pitched blade or hydrofoil"
+  - "Useful for very dirty/fouling services"
+  - "Simple construction, easy to clean"
+
+# References
+references:
+  - "Rushton et al. (1950), Chem Eng Prog"
+  - "Nagata (1975), Mixing: Principles and Applications"
