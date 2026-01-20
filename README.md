@@ -1,5 +1,8 @@
 # Mixing CFD MCP Server
 
+> **⚠️ DEVELOPMENT STATUS: This project is under active development and is not yet production-ready. APIs, interfaces, and functionality may change without notice. Use at your own risk for evaluation and testing purposes only. Not recommended for production deployments.**
+
+
 Universal tank mixing CFD analysis via MCP (Model Context Protocol).
 
 ## Overview
